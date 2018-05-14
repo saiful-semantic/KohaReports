@@ -1,0 +1,912 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report xmlns="http://www.eclipse.org/birt/2005/design" version="3.2.23" id="1">
+    <property name="author">Saiful Amin &lt;saiful@semanticconsulting.com></property>
+    <property name="createdBy">Eclipse BIRT Designer Version 4.5.0.v201506092134 Build &lt;@BUILD@></property>
+    <text-property name="title">Document Requisition &amp; LC Approval Form</text-property>
+    <html-property name="description">Document Requisition and LC Approval</html-property>
+    <property name="units">in</property>
+    <property name="iconFile">/templates/blank_report.gif</property>
+    <property name="bidiLayoutOrientation">ltr</property>
+    <property name="imageDPI">96</property>
+    <list-property name="libraries">
+        <structure>
+            <property name="fileName">koha_cabs.rptlibrary</property>
+            <property name="namespace">koha_cabs</property>
+        </structure>
+    </list-property>
+    <parameters>
+        <scalar-parameter name="PatronBarcode" id="7">
+            <text-property name="helpText">Enter the Patron Barcode</text-property>
+            <text-property name="promptText">Patron Barcode</text-property>
+            <property name="valueType">static</property>
+            <property name="isRequired">true</property>
+            <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <simple-property-list name="defaultValue">
+                <value type="constant">a1111</value>
+            </simple-property-list>
+            <list-property name="selectionList"/>
+            <property name="paramType">simple</property>
+            <property name="concealValue">false</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+        <scalar-parameter name="FileNumber" id="8">
+            <text-property name="helpText">Enter the File Number</text-property>
+            <text-property name="promptText">File Number</text-property>
+            <property name="valueType">static</property>
+            <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <simple-property-list name="defaultValue">
+                <value type="constant">CABS/TIC/DR&amp;LC/2015/</value>
+            </simple-property-list>
+            <list-property name="selectionList"/>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+        <scalar-parameter name="ApproverName" id="10">
+            <text-property name="helpText">Enter the Name of Approver</text-property>
+            <text-property name="promptText">Approver</text-property>
+            <property name="valueType">static</property>
+            <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <simple-property-list name="defaultValue">
+                <value type="constant">P. Subramanian, Sc 'F'</value>
+            </simple-property-list>
+            <list-property name="selectionList"/>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+        <scalar-parameter name="Discount" id="260">
+            <text-property name="helpText">Enter the discount %</text-property>
+            <text-property name="promptText">Discount %</text-property>
+            <property name="valueType">static</property>
+            <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <simple-property-list name="defaultValue">
+                <value type="constant">10%</value>
+            </simple-property-list>
+            <list-property name="selectionList"/>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+        <scalar-parameter name="FileDate" id="307">
+            <text-property name="helpText">Enter the File Date</text-property>
+            <text-property name="promptText">File Date</text-property>
+            <property name="valueType">static</property>
+            <property name="dataType">date</property>
+            <property name="distinct">true</property>
+            <simple-property-list name="defaultValue">
+                <value type="javascript">new Date()</value>
+            </simple-property-list>
+            <list-property name="selectionList"/>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+    </parameters>
+    <data-sources>
+        <oda-data-source extensionID="org.eclipse.birt.report.data.oda.jdbc" name="koha_cabs" id="255"
+ extends="koha_cabs.koha_cabs"/>
+    </data-sources>
+    <data-sets>
+        <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="Suggested_Titles" id="6">
+            <property name="nullsOrdering">nulls lowest</property>
+            <list-property name="columnHints">
+                <structure>
+                    <property name="columnName">Title/Author/ISBN No.</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">Title/Author/ISBN No.</text-property>
+                    <text-property name="heading">Title/Author/ISBN No.</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">Cost (approx)</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">Cost (approx)</text-property>
+                    <text-property name="heading">Cost (approx)</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">Qty</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">Qty</text-property>
+                    <text-property name="heading">Qty</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">Status</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">Status</text-property>
+                    <text-property name="heading">Status</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">Suggested_Date</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">Suggested_Date</text-property>
+                    <text-property name="heading">Suggested_Date</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">Indenter</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">Indenter</text-property>
+                    <text-property name="heading">Indenter</text-property>
+                </structure>
+            </list-property>
+            <list-property name="parameters">
+                <structure>
+                    <property name="name">PatronBarcode</property>
+                    <property name="paramName">PatronBarcode</property>
+                    <property name="nativeName"></property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">-1</property>
+                    <property name="position">1</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+            </list-property>
+            <structure name="cachedMetaData">
+                <list-property name="resultSet">
+                    <structure>
+                        <property name="position">1</property>
+                        <property name="name">Title/Author/ISBN No.</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">2</property>
+                        <property name="name">Cost (approx)</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">3</property>
+                        <property name="name">Qty</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">4</property>
+                        <property name="name">Status</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">5</property>
+                        <property name="name">Suggested_Date</property>
+                        <property name="dataType">date</property>
+                    </structure>
+                    <structure>
+                        <property name="position">6</property>
+                        <property name="name">Indenter</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                </list-property>
+            </structure>
+            <property name="dataSource">koha_cabs</property>
+            <list-property name="resultSet">
+                <structure>
+                    <property name="position">1</property>
+                    <property name="name">Title/Author/ISBN No.</property>
+                    <property name="nativeName">Title/Author/ISBN No.</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">2</property>
+                    <property name="name">Cost (approx)</property>
+                    <property name="nativeName">Cost (approx)</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">3</property>
+                    <property name="name">Qty</property>
+                    <property name="nativeName">quantity</property>
+                    <property name="dataType">integer</property>
+                    <property name="nativeDataType">5</property>
+                </structure>
+                <structure>
+                    <property name="position">4</property>
+                    <property name="name">Status</property>
+                    <property name="nativeName">STATUS</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">5</property>
+                    <property name="name">Suggested_Date</property>
+                    <property name="nativeName">suggesteddate</property>
+                    <property name="dataType">date</property>
+                    <property name="nativeDataType">91</property>
+                </structure>
+                <structure>
+                    <property name="position">6</property>
+                    <property name="name">Indenter</property>
+                    <property name="nativeName">Indenter</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+            </list-property>
+            <xml-property name="queryText"><![CDATA[SELECT 
+	CONCAT(s.title, ' / ', s.author, ' ', s.isbn) AS 'Title/Author/ISBN No.',
+	CONCAT(s.currency,' ', ROUND(s.price,2)) as 'Cost (approx)', 
+	s.quantity AS 'Qty', 
+    s.STATUS AS 'Status',
+    s.suggesteddate AS 'Suggested_Date',
+	CONCAT(b.firstname,' ',b.surname) as 'Indenter'
+FROM 
+	suggestions s
+	LEFT JOIN borrowers b ON (s.suggestedby = b.borrowernumber)
+WHERE s.STATUS = 'CHECKED'
+	AND b.cardnumber = ?]]></xml-property>
+            <xml-property name="designerValues"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<model:DesignValues xmlns:design="http://www.eclipse.org/datatools/connectivity/oda/design" xmlns:model="http://www.eclipse.org/birt/report/model/adapter/odaModel">
+  <Version>2.0</Version>
+  <DataSetParameters>
+    <parameter>
+      <design:ParameterDefinition>
+        <design:inOutMode>In</design:inOutMode>
+        <design:attributes>
+          <design:identifier>
+            <design:name></design:name>
+            <design:position>1</design:position>
+          </design:identifier>
+          <design:nativeDataTypeCode>-1</design:nativeDataTypeCode>
+          <design:precision>0</design:precision>
+          <design:scale>0</design:scale>
+          <design:nullability>Unknown</design:nullability>
+        </design:attributes>
+      </design:ParameterDefinition>
+    </parameter>
+  </DataSetParameters>
+</model:DesignValues>]]></xml-property>
+        </oda-data-set>
+    </data-sets>
+    <styles>
+        <style name="inlineText" id="33">
+            <property name="display">inline</property>
+        </style>
+    </styles>
+    <page-setup>
+        <simple-master-page name="Simple MasterPage" id="2">
+            <property name="type">a4</property>
+            <property name="topMargin">0.75in</property>
+            <property name="leftMargin">0.75in</property>
+            <property name="bottomMargin">0.75in</property>
+            <property name="rightMargin">0.75in</property>
+            <property name="headerHeight">0px</property>
+            <property name="footerHeight">20px</property>
+            <page-header>
+                <text id="237">
+                    <property name="marginTop">10px</property>
+                    <property name="marginBottom">20px</property>
+                    <property name="textAlign">center</property>
+                    <property name="contentType">html</property>
+                    <text-property name="content"><![CDATA[<H3>CENTER FOR AIR BORNE SYSTEMS (CABS) TIC<BR>
+DOCUMENT REQUISITION AND LC APPROVAL FORM</H3>]]></text-property>
+                </text>
+            </page-header>
+            <page-footer>
+                <text id="3">
+                    <property name="contentType">html</property>
+                    <text-property name="content"><![CDATA[<value-of>new Date()</value-of>]]></text-property>
+                </text>
+            </page-footer>
+        </simple-master-page>
+    </page-setup>
+    <body>
+        <grid id="309">
+            <property name="height">1.2604166666666667in</property>
+            <property name="width">6.739583333333333in</property>
+            <column id="310">
+                <property name="width">3.4375in</property>
+            </column>
+            <column id="311">
+                <property name="width">1.6458333333333333in</property>
+            </column>
+            <column id="312">
+                <property name="width">1.65625in</property>
+            </column>
+            <row id="313">
+                <property name="verticalAlign">top</property>
+                <property name="height">0.8333333333333334in</property>
+                <cell id="314">
+                    <property name="colSpan">3</property>
+                    <property name="rowSpan">1</property>
+                    <text id="254">
+                        <property name="marginTop">10px</property>
+                        <property name="marginBottom">20px</property>
+                        <property name="textAlign">center</property>
+                        <property name="contentType">html</property>
+                        <text-property name="content"><![CDATA[<H3>CENTER FOR AIR BORNE SYSTEMS (CABS) TIC<BR>
+DOCUMENT REQUISITION AND LC APPROVAL FORM</H3>]]></text-property>
+                    </text>
+                </cell>
+            </row>
+            <row id="317">
+                <property name="verticalAlign">middle</property>
+                <property name="height">0.3645833333333333in</property>
+                <cell id="318">
+                    <data id="27">
+                        <property name="fontWeight">bold</property>
+                        <list-property name="boundDataColumns">
+                            <structure>
+                                <property name="name">FileNumber</property>
+                                <expression name="expression" type="javascript">params["FileNumber"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                        </list-property>
+                        <property name="resultSetColumn">FileNumber</property>
+                    </data>
+                </cell>
+                <cell id="319"/>
+                <cell id="320">
+                    <label id="31">
+                        <property name="style">inlineText</property>
+                        <property name="fontWeight">bolder</property>
+                        <property name="width">40px</property>
+                        <text-property name="text">Date:</text-property>
+                    </label>
+                    <data id="308">
+                        <structure name="dateTimeFormat">
+                            <property name="category">Medium Date</property>
+                            <property name="pattern">Medium Date</property>
+                        </structure>
+                        <property name="display">inline</property>
+                        <property name="width">80px</property>
+                        <list-property name="boundDataColumns">
+                            <structure>
+                                <property name="name">FileDate</property>
+                                <expression name="expression" type="javascript">params["FileDate"]</expression>
+                                <property name="dataType">date</property>
+                            </structure>
+                        </list-property>
+                        <property name="resultSetColumn">FileDate</property>
+                    </data>
+                </cell>
+            </row>
+        </grid>
+        <text id="34">
+            <property name="fontWeight">bold</property>
+            <property name="marginTop">10px</property>
+            <property name="marginBottom">10px</property>
+            <property name="contentType">html</property>
+            <text-property name="content"><![CDATA[Please procure the following document(s) whose bibliographical details are given below:]]></text-property>
+        </text>
+        <table id="264">
+            <property name="width">6.666666666666667in</property>
+            <property name="dataSet">Suggested_Titles</property>
+            <list-property name="boundDataColumns">
+                <structure>
+                    <property name="name">Title/Author/ISBN No.</property>
+                    <text-property name="displayName">Title/Author/ISBN No.</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["Title/Author/ISBN No."]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">Cost (approx)</property>
+                    <text-property name="displayName">Cost (approx)</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["Cost (approx)"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">Qty</property>
+                    <text-property name="displayName">Qty</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["Qty"]</expression>
+                    <property name="dataType">integer</property>
+                </structure>
+                <structure>
+                    <property name="name">Status</property>
+                    <text-property name="displayName">Status</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["Status"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+            </list-property>
+            <column id="295">
+                <property name="width">0.5208333333333334in</property>
+            </column>
+            <column id="288">
+                <property name="width">3.09375in</property>
+            </column>
+            <column id="289">
+                <property name="width">0.8125in</property>
+            </column>
+            <column id="290">
+                <property name="width">0.40625in</property>
+            </column>
+            <column id="299">
+                <property name="width">0.7604166666666666in</property>
+            </column>
+            <column id="291">
+                <property name="width">1.0729166666666667in</property>
+            </column>
+            <header>
+                <row id="265">
+                    <property name="backgroundColor">#555753</property>
+                    <property name="fontWeight">bold</property>
+                    <property name="color">#FFFFFF</property>
+                    <property name="verticalAlign">middle</property>
+                    <property name="height">0.4791666666666667in</property>
+                    <cell id="292">
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <label id="301">
+                            <text-property name="text">Sl. No.</text-property>
+                        </label>
+                    </cell>
+                    <cell id="266">
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <label id="267">
+                            <text-property name="text">Title/Author/ISBN No.</text-property>
+                        </label>
+                    </cell>
+                    <cell id="268">
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <label id="269">
+                            <text-property name="text">Cost (approx)</text-property>
+                        </label>
+                    </cell>
+                    <cell id="270">
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <label id="271">
+                            <text-property name="text">Qty</text-property>
+                        </label>
+                    </cell>
+                    <cell id="296">
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <label id="300">
+                            <text-property name="text">Discount</text-property>
+                        </label>
+                    </cell>
+                    <cell id="272">
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <label id="273">
+                            <text-property name="text">Status</text-property>
+                        </label>
+                    </cell>
+                </row>
+            </header>
+            <detail>
+                <row id="274">
+                    <property name="textAlign">center</property>
+                    <property name="height">0.3854166666666667in</property>
+                    <cell id="293">
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <text-data id="302">
+                            <property name="textAlign">center</property>
+                            <expression name="valueExpr">row.__rownum+1</expression>
+                            <property name="contentType">html</property>
+                        </text-data>
+                    </cell>
+                    <cell id="275">
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <property name="textAlign">left</property>
+                        <data id="276">
+                            <property name="resultSetColumn">Title/Author/ISBN No.</property>
+                        </data>
+                    </cell>
+                    <cell id="277">
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <data id="278">
+                            <property name="resultSetColumn">Cost (approx)</property>
+                        </data>
+                    </cell>
+                    <cell id="279">
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <data id="280">
+                            <property name="resultSetColumn">Qty</property>
+                        </data>
+                    </cell>
+                    <cell id="297">
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <data id="304">
+                            <list-property name="boundDataColumns">
+                                <structure>
+                                    <property name="name">Discount</property>
+                                    <expression name="expression" type="javascript">params["Discount"]</expression>
+                                    <property name="dataType">string</property>
+                                </structure>
+                            </list-property>
+                            <property name="resultSetColumn">Discount</property>
+                        </data>
+                    </cell>
+                    <cell id="281">
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <text id="327">
+                            <property name="contentType">html</property>
+                            <text-property name="content"><![CDATA[Not Available]]></text-property>
+                        </text>
+                    </cell>
+                </row>
+            </detail>
+        </table>
+        <grid id="11">
+            <property name="marginTop">10px</property>
+            <property name="height">5.052083333333333in</property>
+            <property name="width">6.71875in</property>
+            <column id="12">
+                <property name="width">3.5104166666666665in</property>
+            </column>
+            <column id="13">
+                <property name="width">1.6666666666666667in</property>
+            </column>
+            <column id="14">
+                <property name="width">1.5416666666666667in</property>
+            </column>
+            <row id="246">
+                <property name="height">1.03125in</property>
+                <cell id="247">
+                    <property name="colSpan">3</property>
+                    <property name="rowSpan">1</property>
+                    <property name="style">inlineText</property>
+                    <grid id="170">
+                        <property name="marginTop">10px</property>
+                        <property name="marginBottom">10px</property>
+                        <property name="height">0.78125in</property>
+                        <property name="width">6.614583333333333in</property>
+                        <column id="171">
+                            <property name="width">3.3229166666666665in</property>
+                        </column>
+                        <column id="172">
+                            <property name="width">3.2916666666666665in</property>
+                        </column>
+                        <row id="173">
+                            <property name="verticalAlign">middle</property>
+                            <property name="height">0.4479166666666667in</property>
+                            <cell id="174">
+                                <property name="borderBottomStyle">solid</property>
+                                <property name="borderBottomWidth">thin</property>
+                                <property name="borderLeftStyle">solid</property>
+                                <property name="borderLeftWidth">thin</property>
+                                <property name="borderRightStyle">solid</property>
+                                <property name="borderRightWidth">thin</property>
+                                <property name="borderTopStyle">solid</property>
+                                <property name="borderTopWidth">thin</property>
+                                <label id="179">
+                                    <property name="style">inlineText</property>
+                                    <property name="width">80px</property>
+                                    <text-property name="text">Signature with Date:</text-property>
+                                </label>
+                            </cell>
+                            <cell id="175">
+                                <property name="borderBottomStyle">solid</property>
+                                <property name="borderBottomWidth">thin</property>
+                                <property name="borderLeftStyle">solid</property>
+                                <property name="borderLeftWidth">thin</property>
+                                <property name="borderRightStyle">solid</property>
+                                <property name="borderRightWidth">thin</property>
+                                <property name="borderTopStyle">solid</property>
+                                <property name="borderTopWidth">thin</property>
+                                <label id="180">
+                                    <property name="style">inlineText</property>
+                                    <property name="width">80px</property>
+                                    <text-property name="text">Signature:</text-property>
+                                </label>
+                            </cell>
+                        </row>
+                        <row id="176">
+                            <property name="verticalAlign">top</property>
+                            <property name="height">0.3333333333333333in</property>
+                            <cell id="177">
+                                <property name="borderBottomStyle">solid</property>
+                                <property name="borderBottomWidth">thin</property>
+                                <property name="borderLeftStyle">solid</property>
+                                <property name="borderLeftWidth">thin</property>
+                                <property name="borderRightStyle">solid</property>
+                                <property name="borderRightWidth">thin</property>
+                                <property name="borderTopStyle">solid</property>
+                                <property name="borderTopWidth">thin</property>
+                                <label id="182">
+                                    <property name="style">inlineText</property>
+                                    <property name="fontWeight">bold</property>
+                                    <property name="width">110px</property>
+                                    <text-property name="text">Name of Indenter:</text-property>
+                                </label>
+                                <data id="185">
+                                    <property name="style">inlineText</property>
+                                    <property name="width">170px</property>
+                                    <property name="dataSet">Suggested_Titles</property>
+                                    <list-property name="boundDataColumns">
+                                        <structure>
+                                            <property name="name">Indenter</property>
+                                            <text-property name="displayName">Indenter</text-property>
+                                            <expression name="expression" type="javascript">dataSetRow["Indenter"]</expression>
+                                            <property name="dataType">string</property>
+                                        </structure>
+                                    </list-property>
+                                    <property name="resultSetColumn">Indenter</property>
+                                </data>
+                            </cell>
+                            <cell id="178">
+                                <property name="borderBottomStyle">solid</property>
+                                <property name="borderBottomWidth">thin</property>
+                                <property name="borderLeftStyle">solid</property>
+                                <property name="borderLeftWidth">thin</property>
+                                <property name="borderRightStyle">solid</property>
+                                <property name="borderRightWidth">thin</property>
+                                <property name="borderTopStyle">solid</property>
+                                <property name="borderTopWidth">thin</property>
+                                <label id="183">
+                                    <property name="style">inlineText</property>
+                                    <property name="fontWeight">bold</property>
+                                    <property name="width">120px</property>
+                                    <text-property name="text">Approved by GH:</text-property>
+                                </label>
+                                <data id="186">
+                                    <property name="style">inlineText</property>
+                                    <property name="width">180px</property>
+                                    <list-property name="boundDataColumns">
+                                        <structure>
+                                            <property name="name">ApproverName</property>
+                                            <expression name="expression" type="javascript">params["ApproverName"]</expression>
+                                            <property name="dataType">string</property>
+                                        </structure>
+                                    </list-property>
+                                    <property name="resultSetColumn">ApproverName</property>
+                                </data>
+                            </cell>
+                        </row>
+                    </grid>
+                </cell>
+            </row>
+            <row id="242">
+                <property name="height">0.59375in</property>
+                <cell id="243">
+                    <property name="colSpan">3</property>
+                    <property name="rowSpan">1</property>
+                    <property name="style">inlineText</property>
+                    <text id="197">
+                        <property name="fontWeight">bold</property>
+                        <property name="textUnderline">underline</property>
+                        <property name="marginTop">0px</property>
+                        <property name="marginBottom">0px</property>
+                        <property name="paddingTop">5px</property>
+                        <property name="paddingBottom">5px</property>
+                        <property name="contentType">html</property>
+                        <text-property name="content"><![CDATA[APPROVAL OF THE LIBRARY COMMITTEE FOR PROCUREMENT OF BOOKS]]></text-property>
+                    </text>
+                    <text id="198">
+                        <property name="fontWeight">bold</property>
+                        <property name="marginTop">0px</property>
+                        <property name="marginBottom">0px</property>
+                        <property name="paddingTop">5px</property>
+                        <property name="paddingBottom">5px</property>
+                        <property name="contentType">html</property>
+                        <text-property name="content"><![CDATA[The Library Committee recommends the purchase of the above books.]]></text-property>
+                    </text>
+                </cell>
+            </row>
+            <row id="238">
+                <property name="height">2.09375in</property>
+                <cell id="239">
+                    <property name="colSpan">3</property>
+                    <property name="rowSpan">1</property>
+                    <grid id="223">
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">1px</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">1px</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">1px</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">1px</property>
+                        <property name="height">1.9479166666666667in</property>
+                        <property name="width">6.635416666666667in</property>
+                        <column id="224">
+                            <property name="width">3.3229166666666665in</property>
+                        </column>
+                        <column id="225">
+                            <property name="width">3.3125in</property>
+                        </column>
+                        <row id="226">
+                            <property name="height">0.6666666666666666in</property>
+                            <cell id="227">
+                                <property name="borderBottomStyle">solid</property>
+                                <property name="borderBottomWidth">thin</property>
+                                <property name="borderLeftStyle">solid</property>
+                                <property name="borderLeftWidth">thin</property>
+                                <property name="borderRightStyle">solid</property>
+                                <property name="borderRightWidth">thin</property>
+                                <property name="borderTopStyle">solid</property>
+                                <property name="borderTopWidth">thin</property>
+                                <property name="paddingTop">10pt</property>
+                                <property name="textAlign">center</property>
+                                <property name="verticalAlign">bottom</property>
+                                <text id="218">
+                                    <property name="contentType">html</property>
+                                    <text-property name="content"><![CDATA[B. Sridhara, Sc 'D'<BR>
+<I>Member Secretary</I>]]></text-property>
+                                </text>
+                            </cell>
+                            <cell id="228">
+                                <property name="borderBottomStyle">solid</property>
+                                <property name="borderBottomWidth">thin</property>
+                                <property name="borderLeftStyle">solid</property>
+                                <property name="borderLeftWidth">thin</property>
+                                <property name="borderRightStyle">solid</property>
+                                <property name="borderRightWidth">thin</property>
+                                <property name="borderTopStyle">solid</property>
+                                <property name="borderTopWidth">thin</property>
+                                <property name="textAlign">center</property>
+                                <property name="verticalAlign">bottom</property>
+                                <text id="219">
+                                    <property name="contentType">html</property>
+                                    <text-property name="content"><![CDATA[Dr. R. Rajesh, Sc 'E'<BR>
+<I>Member</I>]]></text-property>
+                                </text>
+                            </cell>
+                        </row>
+                        <row id="229">
+                            <property name="height">0.625in</property>
+                            <cell id="230">
+                                <property name="borderBottomStyle">solid</property>
+                                <property name="borderBottomWidth">thin</property>
+                                <property name="borderLeftStyle">solid</property>
+                                <property name="borderLeftWidth">thin</property>
+                                <property name="borderRightStyle">solid</property>
+                                <property name="borderRightWidth">thin</property>
+                                <property name="borderTopStyle">solid</property>
+                                <property name="borderTopWidth">thin</property>
+                                <property name="textAlign">center</property>
+                                <property name="verticalAlign">bottom</property>
+                                <text id="220">
+                                    <property name="contentType">html</property>
+                                    <text-property name="content"><![CDATA[Dr. P. Venkatesh Rao, Sc 'F'<BR>
+<I>Member</I>]]></text-property>
+                                </text>
+                            </cell>
+                            <cell id="231">
+                                <property name="borderBottomStyle">solid</property>
+                                <property name="borderBottomWidth">thin</property>
+                                <property name="borderLeftStyle">solid</property>
+                                <property name="borderLeftWidth">thin</property>
+                                <property name="borderRightStyle">solid</property>
+                                <property name="borderRightWidth">thin</property>
+                                <property name="borderTopStyle">solid</property>
+                                <property name="borderTopWidth">thin</property>
+                                <property name="textAlign">center</property>
+                                <property name="verticalAlign">bottom</property>
+                                <text id="221">
+                                    <property name="contentType">html</property>
+                                    <text-property name="content"><![CDATA[MR Bhuvaneswari, Sc 'F'<BR>
+<I>Member</I>]]></text-property>
+                                </text>
+                            </cell>
+                        </row>
+                        <row id="232">
+                            <property name="height">0.65625in</property>
+                            <cell id="233">
+                                <property name="colSpan">2</property>
+                                <property name="rowSpan">1</property>
+                                <property name="borderBottomStyle">solid</property>
+                                <property name="borderBottomWidth">thin</property>
+                                <property name="borderLeftStyle">solid</property>
+                                <property name="borderLeftWidth">thin</property>
+                                <property name="borderRightStyle">solid</property>
+                                <property name="borderRightWidth">thin</property>
+                                <property name="borderTopStyle">solid</property>
+                                <property name="borderTopWidth">thin</property>
+                                <property name="textAlign">center</property>
+                                <property name="verticalAlign">bottom</property>
+                                <text id="222">
+                                    <property name="contentType">html</property>
+                                    <text-property name="content"><![CDATA[Dr. AC Niranjanappa, Sc 'G'<BR>
+<I>Chairman, LC</I>]]></text-property>
+                                </text>
+                            </cell>
+                        </row>
+                    </grid>
+                </cell>
+            </row>
+            <row id="23">
+                <property name="height">1.1770833333333333in</property>
+                <cell id="24">
+                    <property name="colSpan">3</property>
+                    <property name="rowSpan">1</property>
+                    <text id="235">
+                        <property name="textAlign">center</property>
+                        <property name="contentType">html</property>
+                        <text-property name="content"><![CDATA[APPROVED / NOT APPROVED]]></text-property>
+                    </text>
+                    <text id="236">
+                        <property name="marginTop">30pt</property>
+                        <property name="textAlign">center</property>
+                        <property name="contentType">html</property>
+                        <text-property name="content"><![CDATA[Director/CFA<BR>
+CABS]]></text-property>
+                    </text>
+                </cell>
+            </row>
+        </grid>
+    </body>
+</report>

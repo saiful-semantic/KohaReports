@@ -1,0 +1,1235 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<library xmlns="http://www.eclipse.org/birt/2005/design" version="3.2.23" id="1">
+    <property name="createdBy">Eclipse BIRT Designer Version 4.5.0.v201506092134 Build &lt;@BUILD@></property>
+    <property name="units">in</property>
+    <property name="theme">defaultTheme</property>
+    <data-sources>
+        <oda-data-source extensionID="org.eclipse.birt.report.data.oda.jdbc" name="koha_cabs" id="5">
+            <list-property name="privateDriverProperties">
+                <ex-property>
+                    <name>metadataBidiFormatStr</name>
+                    <value>ILYNN</value>
+                </ex-property>
+                <ex-property>
+                    <name>disabledMetadataBidiFormatStr</name>
+                </ex-property>
+                <ex-property>
+                    <name>contentBidiFormatStr</name>
+                    <value>ILYNN</value>
+                </ex-property>
+                <ex-property>
+                    <name>disabledContentBidiFormatStr</name>
+                </ex-property>
+            </list-property>
+            <property name="odaDriverClass">com.mysql.jdbc.Driver</property>
+            <property name="odaURL">jdbc:mysql://localhost:3306/koha_demo</property>
+            <property name="odaUser">reporter</property>
+            <encrypted-property name="odaPassword" encryptionID="base64">cmVwb3J0ZXI=</encrypted-property>
+        </oda-data-source>
+    </data-sources>
+    <data-sets>
+        <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="Suggested_Titles" id="6">
+            <property name="nullsOrdering">nulls lowest</property>
+            <list-property name="columnHints">
+                <structure>
+                    <property name="columnName">Title/Author/ISBN No.</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">Title/Author/ISBN No.</text-property>
+                    <text-property name="heading">Title/Author/ISBN No.</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">Cost (approx)</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">Cost (approx)</text-property>
+                    <text-property name="heading">Cost (approx)</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">Qty</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">Qty</text-property>
+                    <text-property name="heading">Qty</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">Status</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">Status</text-property>
+                    <text-property name="heading">Status</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">Suggested_Date</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">Suggested_Date</text-property>
+                    <text-property name="heading">Suggested_Date</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">Indenter</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">Indenter</text-property>
+                    <text-property name="heading">Indenter</text-property>
+                </structure>
+            </list-property>
+            <list-property name="parameters"/>
+            <structure name="cachedMetaData">
+                <list-property name="resultSet">
+                    <structure>
+                        <property name="position">1</property>
+                        <property name="name">Title/Author/ISBN No.</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">2</property>
+                        <property name="name">Cost (approx)</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">3</property>
+                        <property name="name">Qty</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">4</property>
+                        <property name="name">Status</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">5</property>
+                        <property name="name">Suggested_Date</property>
+                        <property name="dataType">date</property>
+                    </structure>
+                    <structure>
+                        <property name="position">6</property>
+                        <property name="name">Indenter</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                </list-property>
+            </structure>
+            <property name="dataSource">koha_cabs</property>
+            <list-property name="resultSet">
+                <structure>
+                    <property name="position">1</property>
+                    <property name="name">Title/Author/ISBN No.</property>
+                    <property name="nativeName">Title/Author/ISBN No.</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">2</property>
+                    <property name="name">Cost (approx)</property>
+                    <property name="nativeName">Cost (approx)</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">3</property>
+                    <property name="name">Qty</property>
+                    <property name="nativeName">quantity</property>
+                    <property name="dataType">integer</property>
+                    <property name="nativeDataType">5</property>
+                </structure>
+                <structure>
+                    <property name="position">4</property>
+                    <property name="name">Status</property>
+                    <property name="nativeName">STATUS</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">5</property>
+                    <property name="name">Suggested_Date</property>
+                    <property name="nativeName">suggesteddate</property>
+                    <property name="dataType">date</property>
+                    <property name="nativeDataType">91</property>
+                </structure>
+                <structure>
+                    <property name="position">6</property>
+                    <property name="name">Indenter</property>
+                    <property name="nativeName">Indenter</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+            </list-property>
+            <xml-property name="queryText"><![CDATA[SELECT 
+	CONCAT(s.title, ' / ', s.author, ' ', s.isbn) AS 'Title/Author/ISBN No.',
+	CONCAT(s.currency,' ', ROUND(s.price,2)) as 'Cost (approx)', 
+	s.quantity AS 'Qty', 
+    s.STATUS AS 'Status',
+    s.suggesteddate AS 'Suggested_Date',
+	CONCAT(b.firstname,' ',b.surname) as 'Indenter'
+FROM 
+	suggestions s
+	LEFT JOIN borrowers b ON (s.suggestedby = b.borrowernumber)
+WHERE s.STATUS = 'CHECKED']]></xml-property>
+        </oda-data-set>
+        <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="Ordered_Titles" id="7">
+            <list-property name="columnHints">
+                <structure>
+                    <property name="columnName">Basket Group ID</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">Basket Group ID</text-property>
+                    <text-property name="heading">Basket Group ID</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">Order Date</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">Order Date</text-property>
+                    <text-property name="heading">Order Date</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">Vendor</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">Vendor</text-property>
+                    <text-property name="heading">Vendor</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">Title/Author/ISBN</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">Title/Author/ISBN</text-property>
+                    <text-property name="heading">Title/Author/ISBN</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">Cost (Approx.)</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">Cost (Approx.)</text-property>
+                    <text-property name="heading">Cost (Approx.)</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">Qty</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">Qty</text-property>
+                    <text-property name="heading">Qty</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">Discount</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">Discount</text-property>
+                    <text-property name="heading">Discount</text-property>
+                </structure>
+            </list-property>
+            <list-property name="parameters"/>
+            <structure name="cachedMetaData">
+                <list-property name="resultSet">
+                    <structure>
+                        <property name="position">1</property>
+                        <property name="name">Basket Group ID</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">2</property>
+                        <property name="name">Order Date</property>
+                        <property name="dataType">date</property>
+                    </structure>
+                    <structure>
+                        <property name="position">3</property>
+                        <property name="name">Vendor</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">4</property>
+                        <property name="name">Title/Author/ISBN</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">5</property>
+                        <property name="name">Cost (Approx.)</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">6</property>
+                        <property name="name">Qty</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">7</property>
+                        <property name="name">Discount</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                </list-property>
+            </structure>
+            <property name="dataSource">koha_cabs</property>
+            <list-property name="resultSet">
+                <structure>
+                    <property name="position">1</property>
+                    <property name="name">Basket Group ID</property>
+                    <property name="nativeName">basketgroupid</property>
+                    <property name="dataType">integer</property>
+                    <property name="nativeDataType">4</property>
+                </structure>
+                <structure>
+                    <property name="position">2</property>
+                    <property name="name">Order Date</property>
+                    <property name="nativeName">closedate</property>
+                    <property name="dataType">date</property>
+                    <property name="nativeDataType">91</property>
+                </structure>
+                <structure>
+                    <property name="position">3</property>
+                    <property name="name">Vendor</property>
+                    <property name="nativeName">Vendor</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">4</property>
+                    <property name="name">Title/Author/ISBN</property>
+                    <property name="nativeName">Title/Author/ISBN</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">5</property>
+                    <property name="name">Cost (Approx.)</property>
+                    <property name="nativeName">Cost (Approx.)</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">6</property>
+                    <property name="name">Qty</property>
+                    <property name="nativeName">quantity</property>
+                    <property name="dataType">integer</property>
+                    <property name="nativeDataType">5</property>
+                </structure>
+                <structure>
+                    <property name="position">7</property>
+                    <property name="name">Discount</property>
+                    <property name="nativeName">Discount</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+            </list-property>
+            <xml-property name="queryText"><![CDATA[SELECT 
+	ab.basketgroupid AS 'Basket Group ID',
+	ab.closedate AS 'Order Date',
+	CONCAT_WS('\n', abs.name, abs.postal) AS 'Vendor',
+	CONCAT(b.title, ' / ', 
+		COALESCE(b.author, ''), ', ', 
+		COALESCE(b.copyrightdate,'')) AS 'Title/Author/ISBN',
+	CONCAT(ao.currency, ' ', ROUND(ao.listprice,2)) AS 'Cost (Approx.)',
+	ao.quantity AS 'Qty',
+	CONCAT(ROUND(ao.discount,0), '%') AS 'Discount'
+FROM 
+	aqbasket ab
+	LEFT JOIN aqorders ao ON (ab.basketno = ao.basketno)
+	LEFT JOIN biblio b ON (ao.biblionumber = b.biblionumber)
+	LEFT JOIN aqbooksellers abs ON (ab.booksellerid = abs.id)]]></xml-property>
+            <xml-property name="designerValues"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<model:DesignValues xmlns:design="http://www.eclipse.org/datatools/connectivity/oda/design" xmlns:model="http://www.eclipse.org/birt/report/model/adapter/odaModel">
+  <Version>2.0</Version>
+  <design:ResultSets derivedMetaData="true">
+    <design:resultSetDefinitions>
+      <design:resultSetColumns>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>closedate</design:name>
+              <design:position>1</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>91</design:nativeDataTypeCode>
+            <design:precision>10</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>Order Date</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>Order Date</design:label>
+            <design:formattingHints>
+              <design:displaySize>10</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>Vendor</design:name>
+              <design:position>2</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>16777216</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>Vendor</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>Vendor</design:label>
+            <design:formattingHints>
+              <design:displaySize>5592405</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>Title/Author/ISBN</design:name>
+              <design:position>3</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>16777216</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>Title/Author/ISBN</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>Title/Author/ISBN</design:label>
+            <design:formattingHints>
+              <design:displaySize>5592405</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>Cost (Approx.)</design:name>
+              <design:position>4</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>31</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>Cost (Approx.)</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>Cost (Approx.)</design:label>
+            <design:formattingHints>
+              <design:displaySize>31</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>quantity</design:name>
+              <design:position>5</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>5</design:nativeDataTypeCode>
+            <design:precision>6</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>Qty</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>Qty</design:label>
+            <design:formattingHints>
+              <design:displaySize>6</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>Discount</design:name>
+              <design:position>6</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>18</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>Discount</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>Discount</design:label>
+            <design:formattingHints>
+              <design:displaySize>18</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+      </design:resultSetColumns>
+      <design:criteria/>
+    </design:resultSetDefinitions>
+  </design:ResultSets>
+</model:DesignValues>]]></xml-property>
+        </oda-data-set>
+        <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="Invoice_Total" id="8">
+            <list-property name="columnHints">
+                <structure>
+                    <property name="columnName">Invoice No.</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">Invoice No.</text-property>
+                    <text-property name="heading">Invoice No.</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">Invoice Date</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">Invoice Date</text-property>
+                    <text-property name="heading">Invoice Date</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">Invoice Total</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">Invoice Total</text-property>
+                    <text-property name="heading">Invoice Total</text-property>
+                </structure>
+            </list-property>
+            <structure name="cachedMetaData">
+                <list-property name="resultSet">
+                    <structure>
+                        <property name="position">1</property>
+                        <property name="name">Invoice No.</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">2</property>
+                        <property name="name">Invoice Date</property>
+                        <property name="dataType">date</property>
+                    </structure>
+                    <structure>
+                        <property name="position">3</property>
+                        <property name="name">Invoice Total</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                </list-property>
+            </structure>
+            <property name="dataSource">koha_cabs</property>
+            <list-property name="resultSet">
+                <structure>
+                    <property name="position">1</property>
+                    <property name="name">Invoice No.</property>
+                    <property name="nativeName">invoicenumber</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">2</property>
+                    <property name="name">Invoice Date</property>
+                    <property name="nativeName">billingdate</property>
+                    <property name="dataType">date</property>
+                    <property name="nativeDataType">91</property>
+                </structure>
+                <structure>
+                    <property name="position">3</property>
+                    <property name="name">Invoice Total</property>
+                    <property name="nativeName">Invoice Total</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+            </list-property>
+            <xml-property name="queryText"><![CDATA[SELECT 
+	ai.invoicenumber AS 'Invoice No.',
+	ai.billingdate AS 'Invoice Date',
+	FORMAT(SUM(ao.quantityreceived * COALESCE(ao.unitprice, ao.ecost) ) 
+		+ ai.shipmentcost, 2) AS 'Invoice Total'
+FROM 
+	aqorders ao
+	LEFT JOIN aqinvoices ai ON (ai.invoiceid = ao.invoiceid)
+GROUP BY
+	ao.invoiceid]]></xml-property>
+            <xml-property name="designerValues"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<model:DesignValues xmlns:design="http://www.eclipse.org/datatools/connectivity/oda/design" xmlns:model="http://www.eclipse.org/birt/report/model/adapter/odaModel">
+  <Version>2.0</Version>
+  <design:ResultSets derivedMetaData="true">
+    <design:resultSetDefinitions>
+      <design:resultSetColumns>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>invoicenumber</design:name>
+              <design:position>1</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>5592405</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>Invoice No.</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>Invoice No.</design:label>
+            <design:formattingHints>
+              <design:displaySize>5592405</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>billingdate</design:name>
+              <design:position>2</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>91</design:nativeDataTypeCode>
+            <design:precision>10</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>Invoice Date</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>Invoice Date</design:label>
+            <design:formattingHints>
+              <design:displaySize>10</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>Invoice Total</design:name>
+              <design:position>3</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>110</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>Invoice Total</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>Invoice Total</design:label>
+            <design:formattingHints>
+              <design:displaySize>110</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+      </design:resultSetColumns>
+      <design:criteria/>
+    </design:resultSetDefinitions>
+  </design:ResultSets>
+</model:DesignValues>]]></xml-property>
+        </oda-data-set>
+        <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="Accession_List" id="9">
+            <list-property name="columnHints">
+                <structure>
+                    <property name="columnName">Vendor</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">Vendor</text-property>
+                    <property name="onColumnLayout">false</property>
+                    <text-property name="heading">Vendor</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">Basket No./Basket Name</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">Basket No./Basket Name</text-property>
+                    <property name="onColumnLayout">false</property>
+                    <text-property name="heading">Basket No./Basket Name</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">Order Date</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">Order Date</text-property>
+                    <property name="onColumnLayout">false</property>
+                    <text-property name="heading">Order Date</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">Author</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">Author</text-property>
+                    <property name="onColumnLayout">false</property>
+                    <text-property name="heading">Author</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">Title</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">Title</text-property>
+                    <property name="onColumnLayout">false</property>
+                    <text-property name="heading">Title</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">Publisher</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">Publisher</text-property>
+                    <property name="onColumnLayout">false</property>
+                    <text-property name="heading">Publisher</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">Price</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">Price</text-property>
+                    <property name="onColumnLayout">false</property>
+                    <text-property name="heading">Price</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">Qty Ordered</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">Qty Ordered</text-property>
+                    <property name="onColumnLayout">false</property>
+                    <text-property name="heading">Qty Ordered</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">Qty Recd</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">Qty Recd</text-property>
+                    <property name="onColumnLayout">false</property>
+                    <text-property name="heading">Qty Recd</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">Total Cost (Rs)</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">Total Cost (Rs)</text-property>
+                    <property name="onColumnLayout">false</property>
+                    <text-property name="heading">Total Cost (Rs)</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">Library Acc No.</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">Library Acc No.</text-property>
+                    <property name="onColumnLayout">false</property>
+                    <text-property name="heading">Library Acc No.</text-property>
+                </structure>
+            </list-property>
+            <list-property name="parameters">
+                <structure>
+                    <property name="name">InvoiceID</property>
+                    <property name="paramName">InvoiceID</property>
+                    <property name="nativeName"></property>
+                    <property name="dataType">integer</property>
+                    <property name="nativeDataType">-1</property>
+                    <property name="position">1</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+            </list-property>
+            <structure name="cachedMetaData">
+                <list-property name="resultSet">
+                    <structure>
+                        <property name="position">1</property>
+                        <property name="name">Vendor</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">2</property>
+                        <property name="name">Basket No./Basket Name</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">3</property>
+                        <property name="name">Order Date</property>
+                        <property name="dataType">date</property>
+                    </structure>
+                    <structure>
+                        <property name="position">4</property>
+                        <property name="name">Author</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">5</property>
+                        <property name="name">Title</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">6</property>
+                        <property name="name">Publisher</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">7</property>
+                        <property name="name">Price</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">8</property>
+                        <property name="name">Qty Ordered</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">9</property>
+                        <property name="name">Qty Recd</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">10</property>
+                        <property name="name">Total Cost (Rs)</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">11</property>
+                        <property name="name">Library Acc No.</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                </list-property>
+            </structure>
+            <property name="dataSource">koha_cabs</property>
+            <list-property name="resultSet">
+                <structure>
+                    <property name="position">1</property>
+                    <property name="name">Vendor</property>
+                    <property name="nativeName">Vendor</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">2</property>
+                    <property name="name">Basket No./Basket Name</property>
+                    <property name="nativeName">Basket No./Basket Name</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">3</property>
+                    <property name="name">Order Date</property>
+                    <property name="nativeName">closedate</property>
+                    <property name="dataType">date</property>
+                    <property name="nativeDataType">91</property>
+                </structure>
+                <structure>
+                    <property name="position">4</property>
+                    <property name="name">Author</property>
+                    <property name="nativeName">author</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">5</property>
+                    <property name="name">Title</property>
+                    <property name="nativeName">title</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">6</property>
+                    <property name="name">Publisher</property>
+                    <property name="nativeName">publishercode</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">7</property>
+                    <property name="name">Price</property>
+                    <property name="nativeName">Price</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">8</property>
+                    <property name="name">Qty Ordered</property>
+                    <property name="nativeName">quantity</property>
+                    <property name="dataType">integer</property>
+                    <property name="nativeDataType">5</property>
+                </structure>
+                <structure>
+                    <property name="position">9</property>
+                    <property name="name">Qty Recd</property>
+                    <property name="nativeName">quantity</property>
+                    <property name="dataType">integer</property>
+                    <property name="nativeDataType">5</property>
+                </structure>
+                <structure>
+                    <property name="position">10</property>
+                    <property name="name">Total Cost (Rs)</property>
+                    <property name="nativeName">Total Cost (Rs)</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">11</property>
+                    <property name="name">Library Acc No.</property>
+                    <property name="nativeName">barcode</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+            </list-property>
+            <xml-property name="queryText"><![CDATA[SELECT 
+	CONCAT_WS('\n', abs.name, abs.postal) AS 'Vendor',
+	CONCAT(ao.basketno,'/',ab.basketname) AS 'Basket No./Basket Name',
+	ab.closedate AS 'Order Date', 
+	b.author AS 'Author', 
+	b.title AS 'Title', 
+	bi.publishercode AS 'Publisher',
+	CONCAT_WS('\n', 
+		CONCAT(ao.currency, ' ', ao.rrp),
+		CONCAT('Less ', ROUND(ao.discount,0), '% discount'),
+		CONCAT('-', ROUND(SUM(ao.rrp * ao.discount/100),2)),
+		CONCAT('--------------'),
+		CONCAT('Rs. ', ROUND(COALESCE(ao.unitprice,ao.ecost),2))
+	) AS 'Price',
+	ao.quantity AS 'Qty Ordered', 
+	ao.quantity AS 'Qty Recd', 
+	FORMAT(SUM(ao.quantityreceived * COALESCE(ao.unitprice,ao.ecost)),2) as 'Total Cost (Rs)',
+	i.barcode AS 'Library Acc No.'
+FROM 
+	aqorders ao
+	LEFT JOIN aqorders_items ai ON (ao.ordernumber = ai.ordernumber) 
+	LEFT JOIN items i ON (ai.itemnumber = i.itemnumber) 
+	LEFT JOIN biblio b ON (ao.biblionumber = b.biblionumber) 
+	LEFT JOIN biblioitems bi ON (b.biblionumber = bi.biblionumber) 
+	LEFT JOIN aqbasket ab ON (ao.basketno = ab.basketno) 
+	LEFT JOIN aqbooksellers abs ON (ab.booksellerid = abs.id)
+WHERE 
+	ao.quantityreceived > 0 
+	AND ao.datecancellationprinted IS NULL
+	AND ao.invoiceid = ?]]></xml-property>
+            <xml-property name="designerValues"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<model:DesignValues xmlns:design="http://www.eclipse.org/datatools/connectivity/oda/design" xmlns:model="http://www.eclipse.org/birt/report/model/adapter/odaModel">
+  <Version>2.0</Version>
+  <DataSetParameters>
+    <parameter>
+      <design:ParameterDefinition>
+        <design:inOutMode>In</design:inOutMode>
+        <design:attributes>
+          <design:identifier>
+            <design:name></design:name>
+            <design:position>1</design:position>
+          </design:identifier>
+          <design:nativeDataTypeCode>-1</design:nativeDataTypeCode>
+          <design:precision>0</design:precision>
+          <design:scale>0</design:scale>
+          <design:nullability>Unknown</design:nullability>
+        </design:attributes>
+      </design:ParameterDefinition>
+    </parameter>
+  </DataSetParameters>
+  <design:ResultSets derivedMetaData="true">
+    <design:resultSetDefinitions>
+      <design:resultSetColumns>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>Vendor</design:name>
+              <design:position>1</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>16777216</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>Vendor</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>Vendor</design:label>
+            <design:formattingHints>
+              <design:displaySize>5592405</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>Basket No./Basket Name</design:name>
+              <design:position>2</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>62</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>Basket No./Basket Name</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>Basket No./Basket Name</design:label>
+            <design:formattingHints>
+              <design:displaySize>62</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>closedate</design:name>
+              <design:position>3</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>91</design:nativeDataTypeCode>
+            <design:precision>10</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>Order Date</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>Order Date</design:label>
+            <design:formattingHints>
+              <design:displaySize>10</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>author</design:name>
+              <design:position>4</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>5592405</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>Author</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>Author</design:label>
+            <design:formattingHints>
+              <design:displaySize>5592405</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>title</design:name>
+              <design:position>5</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>5592405</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>Title</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>Title</design:label>
+            <design:formattingHints>
+              <design:displaySize>5592405</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>publishercode</design:name>
+              <design:position>6</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>255</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>Publisher</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>Publisher</design:label>
+            <design:formattingHints>
+              <design:displaySize>255</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>Price</design:name>
+              <design:position>7</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>115</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>Price</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>Price</design:label>
+            <design:formattingHints>
+              <design:displaySize>115</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>quantity</design:name>
+              <design:position>8</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>5</design:nativeDataTypeCode>
+            <design:precision>6</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>Qty Ordered</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>Qty Ordered</design:label>
+            <design:formattingHints>
+              <design:displaySize>6</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>quantity</design:name>
+              <design:position>9</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>5</design:nativeDataTypeCode>
+            <design:precision>6</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>Qty Recd</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>Qty Recd</design:label>
+            <design:formattingHints>
+              <design:displaySize>6</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>Total Cost (Rs)</design:name>
+              <design:position>10</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>109</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>Total Cost (Rs)</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>Total Cost (Rs)</design:label>
+            <design:formattingHints>
+              <design:displaySize>109</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>barcode</design:name>
+              <design:position>11</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>20</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>Library Acc No.</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>Library Acc No.</design:label>
+            <design:formattingHints>
+              <design:displaySize>20</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+      </design:resultSetColumns>
+      <design:criteria/>
+    </design:resultSetDefinitions>
+  </design:ResultSets>
+</model:DesignValues>]]></xml-property>
+        </oda-data-set>
+        <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="Financial_Sanction" id="10">
+            <list-property name="parameters">
+                <structure>
+                    <property name="name">InvoiceID</property>
+                    <property name="paramName">InvoiceID</property>
+                    <property name="dataType">integer</property>
+                    <property name="position">1</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+            </list-property>
+            <structure name="cachedMetaData">
+                <list-property name="resultSet">
+                    <structure>
+                        <property name="position">1</property>
+                        <property name="name">ordernumber</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">2</property>
+                        <property name="name">closedate</property>
+                        <property name="dataType">date</property>
+                    </structure>
+                    <structure>
+                        <property name="position">3</property>
+                        <property name="name">Title_Details</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">4</property>
+                        <property name="name">Invoice Total</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                </list-property>
+            </structure>
+            <property name="dataSource">koha_cabs</property>
+            <list-property name="resultSet">
+                <structure>
+                    <property name="position">1</property>
+                    <property name="name">ordernumber</property>
+                    <property name="nativeName">ordernumber</property>
+                    <property name="dataType">integer</property>
+                </structure>
+                <structure>
+                    <property name="position">2</property>
+                    <property name="name">closedate</property>
+                    <property name="nativeName">closedate</property>
+                    <property name="dataType">date</property>
+                </structure>
+                <structure>
+                    <property name="position">3</property>
+                    <property name="name">Title_Details</property>
+                    <property name="nativeName">Title_Details</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">4</property>
+                    <property name="name">Invoice Total</property>
+                    <property name="nativeName">Invoice Total</property>
+                    <property name="dataType">string</property>
+                </structure>
+            </list-property>
+            <xml-property name="queryText"><![CDATA[SELECT 
+	ao.ordernumber AS 'Supply Order No.',
+	ab.closedate AS 'Order Date',  
+	CONCAT(b.title, ' / ', 
+		COALESCE(b.author, ''), '. ', 
+		COALESCE(bi.publishercode, '')) AS 'Title_Details', 
+	FORMAT(SUM(ao.quantityreceived * COALESCE(ao.unitprice, ao.ecost) ) 
+		+ aiv.shipmentcost, 2) AS 'Invoice Total'
+FROM 
+	aqorders ao
+	LEFT JOIN aqorders_items ai ON (ao.ordernumber = ai.ordernumber) 
+	LEFT JOIN aqinvoices aiv ON (ao.invoiceid = aiv.invoiceid)
+	LEFT JOIN items i ON (ai.itemnumber = i.itemnumber) 
+	LEFT JOIN biblio b ON (ao.biblionumber = b.biblionumber) 
+	LEFT JOIN biblioitems bi ON (b.biblionumber = bi.biblionumber) 
+	LEFT JOIN aqbasket ab ON (ao.basketno = ab.basketno) 
+	LEFT JOIN aqbooksellers abs ON (ab.booksellerid = abs.id)
+WHERE 
+	ao.quantityreceived > 0 
+	AND ao.datecancellationprinted IS NULL
+	AND ao.invoiceid = ?]]></xml-property>
+            <xml-property name="designerValues"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<model:DesignValues xmlns:design="http://www.eclipse.org/datatools/connectivity/oda/design" xmlns:model="http://www.eclipse.org/birt/report/model/adapter/odaModel">
+  <Version>2.0</Version>
+  <DataSetParameters>
+    <parameter>
+      <design:ParameterDefinition>
+        <design:inOutMode>In</design:inOutMode>
+        <design:attributes>
+          <design:identifier>
+            <design:name></design:name>
+            <design:position>1</design:position>
+          </design:identifier>
+          <design:nativeDataTypeCode>-1</design:nativeDataTypeCode>
+          <design:precision>0</design:precision>
+          <design:scale>0</design:scale>
+          <design:nullability>Unknown</design:nullability>
+        </design:attributes>
+      </design:ParameterDefinition>
+    </parameter>
+  </DataSetParameters>
+</model:DesignValues>]]></xml-property>
+        </oda-data-set>
+    </data-sets>
+    <themes>
+        <theme name="defaultTheme" id="4"/>
+    </themes>
+    <page-setup>
+        <simple-master-page name="NewSimpleMasterPage" id="3"/>
+    </page-setup>
+</library>
